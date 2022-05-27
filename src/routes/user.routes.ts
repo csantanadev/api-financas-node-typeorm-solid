@@ -1,10 +1,14 @@
+import { Request, Response } from "express";
 import { Router } from "express";
+import { createUserController } from '../useCases/CreateUser'
 
 const userRoutes = Router();
 
-userRoutes.get('/signin', (request, response)=> {
+userRoutes.post('/signup', (req: Request, res: Response) => {
 
-    response.status(200).send({mensagem: 'Rota ok'})
-})
+    return createUserController.handle(req, res)
+
+});
+
 
 export { userRoutes }

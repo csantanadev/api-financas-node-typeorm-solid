@@ -7,5 +7,4 @@ const router = Router();
 router.use('/user', userRoutes)
 
 
-
 export { router }
