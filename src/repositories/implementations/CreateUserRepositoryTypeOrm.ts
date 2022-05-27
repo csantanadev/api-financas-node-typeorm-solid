@@ -13,7 +13,6 @@ export default class CreateUserRepositoryTypeOrm implements ICreateUserRepositor
 
         const user = this.users.find(user => user.email === email);
         return user;
-        return undefined
 
     }
 
