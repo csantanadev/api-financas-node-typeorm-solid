@@ -1,12 +1,12 @@
 import { User } from "../../entities/User";
 import { ICreateUserRepository } from "../../repositories/ICreateUserRepository";
-import { CreateUserDTO } from "./CreateUserDTO";
+import { ICreateUserDTO } from "./ICreateUserDTO";
 
 export default class CreateUserUseCase {
 
     constructor(private createUserRepository: ICreateUserRepository) { }
 
-    async execute(data: CreateUserDTO) {
+    async execute(data: ICreateUserDTO) {
 
         const userExists = await this.createUserRepository.findByEmail(data.email);
 
@@ -14,9 +14,10 @@ export default class CreateUserUseCase {
             throw new Error('User already exists.')
         }
 
-        const user = new User(null, data.name, data.email, data.password);
+        //const user = new User(null, data.name, data.email, data.password);
+        const {name, email, password } = data
 
-        await this.createUserRepository.save(user)
+        await this.createUserRepository.create({name, email, password })
     }
 
 

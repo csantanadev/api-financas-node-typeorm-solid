@@ -1,17 +1,6 @@
-export class User {
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
-    constructor(
-        public id: string = null,
-        public name: string,
-        public email: string,
-        public password: string) { }
-
-}
-
-
-/*import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
-
-@Entity()
+@Entity('users')
 export class User {
 
     @PrimaryGeneratedColumn('uuid')
@@ -26,4 +15,4 @@ export class User {
     @Column()
     password: string;
 
-}*/
+}
