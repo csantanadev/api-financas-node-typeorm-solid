@@ -1,4 +1,3 @@
-import { User } from "../../entities/User";
 import { ICreateUserRepository } from "../../repositories/ICreateUserRepository";
 import { ICreateUserDTO } from "./ICreateUserDTO";
 
@@ -14,10 +13,11 @@ export default class CreateUserUseCase {
             throw new Error('User already exists.')
         }
 
-        //const user = new User(null, data.name, data.email, data.password);
         const {name, email, password } = data
 
         await this.createUserRepository.create({name, email, password })
+
+
     }
 
 
